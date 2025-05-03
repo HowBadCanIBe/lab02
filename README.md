@@ -172,3 +172,19 @@ To https://github.com/HowBadCanIBe/lab02.git
  * [new branch]      patch2 -> patch2
 ```
 4. В ветке master в удаленном репозитории измените комментарии, например, расставьте знаки препинания, переведите комментарии на другой язык.
+```sh
+//Including the libraries
+#include <iostream>
+#include <string> 
+//main function
+int main() {
+//Name input
+    std::string name;
+    std::cout << "Enter your name: ";
+    std::cin >> name;
+//Prining hello world
+    std::cout << "Hello, World! from " << name << std::endl;
+    return 0;
+}
+```
+5. Убедитесь, что в pull-request появились конфликты.
