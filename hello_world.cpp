@@ -1,13 +1,13 @@
-//Объявляю библиотеки
+//Including the libraries
 #include <iostream>
 #include <string> 
-//Функция main
+//main function
 int main() {
-//Ввод имени
+//Name input
     std::string name;
     std::cout << "Enter your name: ";
     std::cin >> name;
-//Печать hello world
+//Prining hello world
     std::cout << "Hello, World! from " << name << std::endl;
     return 0;
 }
