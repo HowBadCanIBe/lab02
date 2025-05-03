@@ -113,3 +113,62 @@ To https://github.com/HowBadCanIBe/lab02.git
 ```
 6. Проверьте, что новые изменения есть в созданном на шаге 5 pull-request
 7. В удалённый репозитории выполните слияние PR patch1 -> master и удалите ветку patch1 в удаленном репозитории.
+8. Локально выполните pull.
+```sh
+git checkout main
+Переключились на ветку «main»
+Эта ветка соответствует «origin/main».
+git pull origin main
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (11/11), done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 8 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+Распаковка объектов: 100% (8/8), 4.61 КиБ | 4.61 МиБ/с, готово.
+Из https://github.com/HowBadCanIBe/lab02
+ * branch            main       -> FETCH_HEAD
+   8251c0c..c4d36d4  main       -> origin/main
+Обновление 8251c0c..c4d36d4
+Fast-forward
+ README.md       | 78 +++++++++++++++++++++++++++++++++++++++++++++++++++++--
+ hello_world.cpp | 23 +++++++++-------
+ 2 files changed, 89 insertions(+), 12 deletions(-)
+```
+9. С помощью команды git log просмотрите историю в локальной версии ветки master.Удалите локальную ветку patch1.
+```sh
+git branch -d patch1
+Ветка patch1 удалена (была 1a19132).
+```
+
+**Часть 3**
+1. Создайте новую локальную ветку "patch2"
+```sh
+git checkout -b patch2
+Переключились на новую ветку «patch2»
+```
+2. Измените code style с помощью утилиты clang-format. Например, используя опцию -style=Mozilla.
+``sh
+clang-format -style=Mozilla -i hello_world.cpp
+```
+3. commit, push, создайте pull-request patch2 -> master.
+```sh
+git commit -am "Formatted code with clang-format"
+[patch2 a8d7e19] Formatted code with clang-format
+ 1 file changed, 13 insertions(+), 11 deletions(-)
+git push origin patch2
+Username for 'https://github.com': HowBadCanIBe
+Password for 'https://HowBadCanIBe@github.com': 
+Перечисление объектов: 5, готово.
+Подсчет объектов: 100% (5/5), готово.
+При сжатии изменений используется до 8 потоков
+Сжатие объектов: 100% (3/3), готово.
+Запись объектов: 100% (3/3), 398 байтов | 398.00 КиБ/с, готово.
+Всего 3 (изменений 2), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+remote: 
+remote: Create a pull request for 'patch2' on GitHub by visiting:
+remote:      https://github.com/HowBadCanIBe/lab02/pull/new/patch2
+remote: 
+To https://github.com/HowBadCanIBe/lab02.git
+ * [new branch]      patch2 -> patch2
+```
+4. В ветке master в удаленном репозитории измените комментарии, например, расставьте знаки препинания, переведите комментарии на другой язык.
