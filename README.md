@@ -97,3 +97,19 @@ To https://github.com/HowBadCanIBe/lab02.git
 3. Проверьте, что ветка patch1 доступна в удалёный репозитории.
 4. Создайте pull-request patch1 -> master.
 5. В локальной копии в ветке patch1 добавьте в исходный код комментарии. commit, push.
+```sh
+git push origin patch1
+Username for 'https://github.com': HowBadCanIBe
+Password for 'https://HowBadCanIBe@github.com': 
+Перечисление объектов: 5, готово.
+Подсчет объектов: 100% (5/5), готово.
+При сжатии изменений используется до 8 потоков
+Сжатие объектов: 100% (3/3), готово.
+Запись объектов: 100% (3/3), 489 байтов | 489.00 КиБ/с, готово.
+Всего 3 (изменений 1), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/HowBadCanIBe/lab02.git
+   dbbb19c..1a19132  patch1 -> patch1
+```
+6. Проверьте, что новые изменения есть в созданном на шаге 5 pull-request
+7. В удалённый репозитории выполните слияние PR patch1 -> master и удалите ветку patch1 в удаленном репозитории.
