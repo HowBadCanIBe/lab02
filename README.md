@@ -150,7 +150,7 @@ git checkout -b patch2
 clang-format -style=Mozilla -i hello_world.cpp
 ```
 3. commit, push, создайте pull-request patch2 -> master.
-```sh
+```sh8.Убедитель, что в pull-request пропали конфликтны. 9.Вмержите pull-request patch2 -> master.
 git commit -am "Formatted code with clang-format"
 [patch2 a8d7e19] Formatted code with clang-format
  1 file changed, 13 insertions(+), 11 deletions(-)
@@ -190,3 +190,35 @@ int main() {
 5. Убедитесь, что в pull-request появились конфликты.
 6. Для этого локально выполните pull + rebase (точную последовательность команд, следует узнать самостоятельно). Исправьте конфликты.
 ```sh
+git checkout main
+Переключились на ветку «main»
+Ветка отстает от «origin/main» на 3 коммита и может быть быстро перемотана.
+  (используйте «git pull», чтобы обновить вашу локальную ветку)
+git pull origin main
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+Распаковка объектов: 100% (3/3), 1.11 КиБ | 1.11 МиБ/с, готово.
+Из https://github.com/HowBadCanIBe/lab02
+ * branch            main       -> FETCH_HEAD
+   1a988a7..952fa95  main       -> origin/main
+Обновление c4d36d4..952fa95
+Fast-forward
+ README.md       | 77 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ hello_world.cpp |  8 +++---
+ 2 files changed, 81 insertions(+), 4 deletions(-)
+git rebase main
+Текущая ветка main уже в актуальном состоянии.
+git rebase --continue
+fatal: Нет перемещения в процессе?
+```
+7. Сделайте force push в ветку patch2
+```sh
+git push origin patch2 --force
+Username for 'https://github.com': HowBadCanIBe
+Password for 'https://HowBadCanIBe@github.com': 
+Everything up-to-date
+```
+8.Убедитель, что в pull-request пропали конфликтны. 
+9.Вмержите pull-request patch2 -> master.
